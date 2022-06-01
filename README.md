@@ -1,46 +1,39 @@
-# cop2805cMod3GPA
-# COP2805C Module 3 Graded Programming Assignment
+# cop2805cMod4GPA
 
-Write a multi-threaded Java program named "EchoMachine" which prompts the user for a sentence, a time increment in seconds, and a number of repetitions. The program should split the sentence into separate words and spawn one thread for each word which echoes the word, sleeps for the specified time increment in seconds, and repeats the process for the specified number of repetitions. Use a "join" statement in your main method which joins each thread to verify they have exited before exiting your main method.
+A queue is an abstract data type similar to the stack we discuss in the lecture slides, but it is a FIFO (first-in, first-out) structure as compared to the stack, which is LIFO (last-in, first-out). Think of it as waiting in line for a movie ticket (the British word for line is "queue"). As the line grows, the first person in the line is "removed" to buy a ticket, while the end of the line continues to grow. So the first person in line is the first person to leave, the second in line is second to leave, and so on.
 
-Hints:
+Modify the GenericStack class provided in this modules's lecture source code (GenericStack.java) to implement a generic queue. You may use the original source file and just make necessary changes (including the class names). The push and pop methods will need to be changed to enque (adds an element to the end of the queue) and deque (removes an element from the front of the queue). You can retain the getSize, peek, isEmpty, and toString methods from the GenericStack class; some of them will need to be tweaked, some can be used as is.
 
-- The "split" method in the String class will split a sentence into an array of Strings consisting of the words.
-- For example, given String s = "This is a test"; calling s.split("\\s") will return an array of Strings containing "This", "is", "a", "test".
-- Define a class which extends the Thread class so you can store the word associated with that thread.
-- Define a member variable in that class which stores a single word, which can be passed via the constructor.
-- Override the run method in your extended class to perform the echo/delay/repeat operations.
-- The constructor for your subclass starts the thread
-- Store the instantiated thread objects (your extended class) in an array of Threads in your main method.
-- You can call join() on the elements of this array using a for loop.
-- Remember that Thread.sleep works in milliseconds, and that you must catch or throw InterruptedException in order to use Thread.sleep().
-- A static helper method which sleeps with the necessary try/catch can save some code lines
+Change the "TestGenericStack" class in that file to  "TestGenericQueue" ; here is the main method to use in your TestGenericQueue class which will test your GenericQueue class:
 
-Submit a single .java file with both classes (do not declare your extended class as public and you can include it in the same file).
+    public static void main(String[] args)
+    {
+        GenericQueue queue1 = new GenericQueue<>();
+        queue1.enque("London");
+        queue1.enque("Paris");
+        queue1.enque("Berlin");
+        log(queue1);
+        log(queue1.deque());
+        log(queue1.deque());
+        log(queue1.deque());
+       
+        GenericQueue queue2 = new GenericQueue<>();
+        queue2.enque(1);
+        queue2.enque(2);
+        queue2.enque(3);
+        log(queue2);
+        log(queue2.deque());
+        log(queue2.deque());
+        log(queue2.deque());     
+    }
 
-Sample output:
+Expected Output -- note that elements are removed in the same order as they are inserted (FIFO), compared to the TestGenericStack program output which removes them in reverse order (LIFO):
 
-       Enter a sentence: Welcome to Wally World!
-       Enter a time increment in seconds: 2   <<== user input
-       Enter a number of repetitions:  3 <<== user input
-       Welcome
-       Wally
-       World!
-       to
-       Wally
-       to
-       Welcome
-       World!
-       Wally
-       World!
-       to
-       Welcome
-       to thread is exiting!
-       World! thread is exiting!
-       Welcome thread is exiting!
-       Wally thread is exiting!
-       thread[0] joined
-       thread[1] joined
-       thread[2] joined
-       thread[3] joined
-       main thread is exiting!
+queue: [London, Paris, Berlin]
+London
+Paris
+Berlin
+queue: [1, 2, 3]
+1
+2
+3
