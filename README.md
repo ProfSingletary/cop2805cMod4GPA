@@ -29,11 +29,11 @@ Change the "TestGenericStack" class in that file to  "TestGenericQueue" ; here 
 
 Expected Output -- note that elements are removed in the same order as they are inserted (FIFO), compared to the TestGenericStack program output which removes them in reverse order (LIFO):
 
-queue: [London, Paris, Berlin]
-London
-Paris
-Berlin
-queue: [1, 2, 3]
-1
-2
-3
+queue: [London, Paris, Berlin]  
+London  
+Paris  
+Berlin  
+queue: [1, 2, 3]  
+1  
+2  
+3  
