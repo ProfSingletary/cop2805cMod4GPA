@@ -6,26 +6,26 @@ Modify the GenericStack class provided in this modules's lecture source code (Ge
 
 Change the "TestGenericStack" class in that file to  "TestGenericQueue" ; here is the main method to use in your TestGenericQueue class which will test your GenericQueue class:
 
-    public static void main(String[] args)
-    {
-        GenericQueue queue1 = new GenericQueue<>();
-        queue1.enque("London");
-        queue1.enque("Paris");
-        queue1.enque("Berlin");
-        log(queue1);
-        log(queue1.deque());
-        log(queue1.deque());
-        log(queue1.deque());
-       
-        GenericQueue queue2 = new GenericQueue<>();
-        queue2.enque(1);
-        queue2.enque(2);
-        queue2.enque(3);
-        log(queue2);
-        log(queue2.deque());
-        log(queue2.deque());
-        log(queue2.deque());     
-    }
+    public static void main(String[] args)  
+    {  
+        GenericQueue queue1 = new GenericQueue<>();  
+        queue1.enque("London");  
+        queue1.enque("Paris");  
+        queue1.enque("Berlin");  
+        log(queue1);  
+        log(queue1.deque());  
+        log(queue1.deque());  
+        log(queue1.deque());  
+         
+        GenericQueue queue2 = new GenericQueue<>();  
+        queue2.enque(1);  
+        queue2.enque(2);  
+        queue2.enque(3);  
+        log(queue2);  
+        log(queue2.deque());  
+        log(queue2.deque());  
+        log(queue2.deque());       
+    }  
 
 Expected Output -- note that elements are removed in the same order as they are inserted (FIFO), compared to the TestGenericStack program output which removes them in reverse order (LIFO):
 
